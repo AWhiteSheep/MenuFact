@@ -1,0 +1,896 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>5</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1380</x>
+      <y>650</y>
+      <w>135</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Menu
+--
+-description:String
+-courant:ing
+-plat:ArrayList&lt;PlatAuMenu&gt;
+--
++Menu(String)
++ajoute(PlatAuMenu):void
++position(int):void
++platCourant():PlatAuMenu
++positionSuivante():void
++positionPrecedente():void
++toString(String)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1395</x>
+      <y>335</y>
+      <w>125</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>Facture
+--
+-date:Date
+-description:String
+-etat:FactureEtat
+-platchosi:ArrayList&lt;PlatChoisi&gt;
+-courant:int
+-client:Client
+--
++Facture(String)
++changeState(FactureEtat)
++associerClient(Client):void
++sousTotal():double
++total():double
++payer():void
+-tps():double
+-tvq():double
++fermer():void
++ouvrir():void
++getEtat:FactureEtat
++ajoutePlat(PlatChoisi):void
++toString():String
++genererFacture():String
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1375</x>
+      <y>225</y>
+      <w>115</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Interface&gt;&gt;FactureEtat
+--
+--
++toString():String
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1485</x>
+      <y>540</y>
+      <w>75</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>FactureException
+--
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1575</x>
+      <y>480</y>
+      <w>75</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>java.lang.Exception
+--
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1535</x>
+      <y>495</y>
+      <w>90</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>160.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1475</x>
+      <y>520</y>
+      <w>45</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;throws&gt;&gt;
+lt=&lt;.</panel_attributes>
+    <additional_attributes>70.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>745</x>
+      <y>365</y>
+      <w>135</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>PlatAuMenu
+--
+-etat:PlatEtat
+-code:int
+-description:String
+-prix:double
+--
++PlatAuMenu()
++changeState(PlatEtat)
++PlatAuMenu(int,String,double)
++getCode():int
++setCode(int):void
++getDescription():String
++setDescription(String):void
++getPrix():double
++setPrix(double):void
++toString():String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1515</x>
+      <y>300</y>
+      <w>190</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;150.0;360.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1575</x>
+      <y>665</y>
+      <w>75</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>MenuException
+--
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1610</x>
+      <y>495</y>
+      <w>15</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;340.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1510</x>
+      <y>685</y>
+      <w>115</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;throws&gt;&gt;
+lt=&lt;.</panel_attributes>
+    <additional_attributes>210.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1400</x>
+      <y>520</y>
+      <w>65</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;260.0;110.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1625</x>
+      <y>195</y>
+      <w>135</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Client
+--
+-idClient:int
+-nom:String
+-numeroCarteCredit:String 
+--
++Client(int, String, String)
++getIdClient():int
++setIdClient(int):void
++getNom():String
++setNom(String):void
++getNumeroCarteCredit():String
++setNumeroCarteCredit(String):void
++toString():String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>970</x>
+      <y>645</y>
+      <w>135</w>
+      <h>115</h>
+    </coordinates>
+    <panel_attributes>PlatSante
+--
+-kcal:double
+-chol:double
+-gras:double
+--
++PlatSante()
++PlatSante(int,String,double,double,double,double)
++getKcal():double
++setKcal(double):void
++getChol():double
++setChol(double):void
++getGras():double
++setGras(double):void
++toString():String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>800</x>
+      <y>490</y>
+      <w>240</w>
+      <h>165</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;460.0;310.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>750</x>
+      <y>210</y>
+      <w>135</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>PlatChoisi
+--
+-plat:PlatAuMenu
+-quantite:int
+-subscriber : Subscriber[]
+--
++notifierSubscriber():void
++addSubscriber(platSubscriber):void
++removeSubscriber(platSubscriber):void
++PlatChoisi(PlatAuMenu,int)
++getQuantite():int
++setQuantite(int):void
++getPlat():PlatAuMenu
++toString():String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>800</x>
+      <y>315</y>
+      <w>15</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>880</x>
+      <y>285</y>
+      <w>525</w>
+      <h>115</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;1030.0;210.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1645</x>
+      <y>410</y>
+      <w>135</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>tests
+--
+
+--
+-methodesTests</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1515</x>
+      <y>430</y>
+      <w>140</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;60.0;260.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>875</x>
+      <y>425</y>
+      <w>515</w>
+      <h>275</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;1010.0;530.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>130</x>
+      <y>35</y>
+      <w>1045</w>
+      <h>735</h>
+    </coordinates>
+    <panel_attributes>Plats</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>1215</x>
+      <y>195</y>
+      <w>385</w>
+      <h>390</h>
+    </coordinates>
+    <panel_attributes>facture</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>1375</x>
+      <y>630</y>
+      <w>295</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>menuFact</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>805</x>
+      <y>665</y>
+      <w>135</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>PlatEnfant
+--
+-proportion:double
+--
++PlatEnfant()
++PlatEnfant(int,String,double,double)
++getProportion():double
++toString():String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>795</x>
+      <y>490</y>
+      <w>95</w>
+      <h>185</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;170.0;350.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1240</x>
+      <y>225</y>
+      <w>115</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>bg=green
+Ouverte
+--
+-facture: Facture
+--
++toString():String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1240</x>
+      <y>270</y>
+      <w>115</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>bg=green
+Fermee
+--
+-facture: Facture
+--
++toString():String
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1240</x>
+      <y>320</y>
+      <w>115</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>bg=green
+Payee
+--
+-facture: Facture
+--
++toString():String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1350</x>
+      <y>245</y>
+      <w>35</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>50.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1350</x>
+      <y>230</y>
+      <w>35</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>50.0;30.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1350</x>
+      <y>250</y>
+      <w>35</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>50.0;10.0;10.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1430</x>
+      <y>250</y>
+      <w>30</w>
+      <h>95</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;</panel_attributes>
+    <additional_attributes>40.0;170.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>485</x>
+      <y>535</y>
+      <w>115</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Interface&gt;&gt;PlatEtat
+--
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>935</x>
+      <y>510</y>
+      <w>135</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>bg=blue
+PlatCreator
+--
+-platCreator:PlatCreator
+--
++createPlat():PlatAuMenu
++getPlatCreator():PlatCreator</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>865</x>
+      <y>565</y>
+      <w>135</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>bg=blue
+PlatEnfantCreator
+--
+-platCreator:PlatCreator
+--
++createPlat() : PlatEnfant
++getPlatCreator() : PlatCreator</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1010</x>
+      <y>565</y>
+      <w>135</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>bg=blue
+PlatSanteCreator
+--
+-platCreator:PlatCreator
+--
++createPlat() : PlatSante
++getPlatCreator() : PlatCreator
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>930</x>
+      <y>550</y>
+      <w>50</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1030</x>
+      <y>550</y>
+      <w>50</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>875</x>
+      <y>470</y>
+      <w>75</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;130.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>595</x>
+      <y>440</y>
+      <w>160</w>
+      <h>115</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>300.0;10.0;10.0;210.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>260</x>
+      <y>580</y>
+      <w>135</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>bg=green
+PlatCommande
+--
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>400</x>
+      <y>580</y>
+      <w>135</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>bg=green
+PlatEnPreparation
+--
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>680</x>
+      <y>580</y>
+      <w>135</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>bg=green
+PlatTermine
+--
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>580</y>
+      <w>135</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>bg=green
+PlatServi
+--
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>470</x>
+      <y>555</y>
+      <w>70</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>120.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>550</x>
+      <y>555</y>
+      <w>65</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;110.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>595</x>
+      <y>555</y>
+      <w>180</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;340.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>325</x>
+      <y>555</y>
+      <w>170</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>320.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>975</x>
+      <y>405</y>
+      <w>135</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>bg=red
+Chef
+--
+--
++notifier(PlatChoisi):void
++changerEtatPlat(PlatChoisi,PlatEtat)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>910</x>
+      <y>475</y>
+      <w>60</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>fg=orange
+lt=&lt;-</panel_attributes>
+    <additional_attributes>100.0;70.0;100.0;10.0;10.0;10.0;10.0;110.0;50.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>965</x>
+      <y>350</y>
+      <w>135</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>bg=red
+PlatChoisiSubscriber
+--
+--
++notifier(PlatChoisi):void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1050</x>
+      <y>375</y>
+      <w>15</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>880</x>
+      <y>305</y>
+      <w>100</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;180.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>470</x>
+      <y>245</y>
+      <w>115</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;Ingredient
+--
+--
++getUnit():String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>325</x>
+      <y>320</y>
+      <w>115</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>Liquide
+--
+--
++getUnit():String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>525</x>
+      <y>335</y>
+      <w>115</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>Solide
+--
+--
++getUnit():String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>385</x>
+      <y>390</y>
+      <w>115</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>Fruits
+--
+--
++getUnit():String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>505</x>
+      <y>390</y>
+      <w>115</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>Légumes
+--
+--
++getUnit():String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>625</x>
+      <y>390</y>
+      <w>115</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>Viandes
+--
+--
++getUnit():String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>265</x>
+      <y>390</y>
+      <w>115</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>Laitiers
+--
+--
++getUnit():String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>645</x>
+      <y>330</y>
+      <w>115</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>Épices
+--
+--
++getUnit():String</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
