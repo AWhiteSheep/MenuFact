@@ -26,3 +26,9 @@ hs_err_pid*
 .idea/vcs.xml
 .idea/modules.xml
 s3app1.iml
+
+MenuFact01/.idea/
+
+MenuFact01/code/.idea/
+MenuFact01/code/out/
+MenuFact01/code/code.iml
