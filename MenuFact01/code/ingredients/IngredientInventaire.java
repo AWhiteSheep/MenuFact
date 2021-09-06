@@ -2,6 +2,7 @@ package ingredients;
 
 import ingredients.exceptions.IngredientException;
 
+//MODEL
 public class IngredientInventaire {
     private Ingredient ingredient;
     private int quantite;
