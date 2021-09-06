@@ -4,7 +4,13 @@ import menufact.Client;
 import menufact.facture.exceptions.FactureException;
 import menufact.plats.PlatChoisi;
 
-public class FactureEtat {
+/**
+ * L'état d'une facture du systeme Menufact
+ * @author Naomie L'archevêque Carrière
+ * @author Yan Ha Routhier-Chevrier
+ * @version 2.0
+ */
+public abstract class FactureEtat {
     protected Facture facture;
 
     public FactureEtat(Facture facture) {
@@ -16,31 +22,31 @@ public class FactureEtat {
      * @param client le client de la facture
      * @throws FactureException
      */
-    public void associerClient(Client client) throws FactureException {}
+    public abstract void associerClient(Client client) throws FactureException;
 
     /**
      *
      * @param p le plat choisi
      * @throws FactureException
      */
-    public void ajoutePlat(PlatChoisi p) throws FactureException {}
+    public abstract void ajoutePlat(PlatChoisi p) throws FactureException;
 
     /**
      * Change l'état de la facture à PAYEE
      * @throws FactureException
      */
-    public void payer() throws FactureException {}
+    public abstract void payer() throws FactureException;
 
     /**
      * Change l'état de la facture à FERMEE
      */
-    public void fermer() throws FactureException {}
+    public abstract void fermer() throws FactureException;
 
     /**
      *
      * @throws FactureException
      */
-    public void ouvrir() throws FactureException {}
+    public abstract void ouvrir() throws FactureException;
 
     /**
      *

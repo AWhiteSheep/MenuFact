@@ -4,6 +4,12 @@ import menufact.Client;
 import menufact.facture.exceptions.FactureException;
 import menufact.plats.PlatChoisi;
 
+/**
+ * L'état payee d'une facture du systeme Menufact
+ * @author Naomie L'archevêque Carrière
+ * @author Yan Ha Routhier-Chevrier
+ * @version 2.0
+ */
 public class FacturePayee extends FactureEtat{
     public FacturePayee(Facture facture) {
         super(facture);

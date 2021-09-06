@@ -69,7 +69,7 @@
       <h>144</h>
     </coordinates>
     <panel_attributes>bg=green
-FactureEtat
+&lt;&lt;abstract&gt;&gt;FactureEtat
 --
 -facture:Facture
 --
@@ -530,12 +530,15 @@ Payee
       <x>1404</x>
       <y>765</y>
       <w>207</w>
-      <h>45</h>
+      <h>81</h>
     </coordinates>
     <panel_attributes>bg=green
-&lt;&lt;Interface&gt;&gt;PlatEtat
+&lt;&lt;abstract&gt;&gt;PlatEtat
 --
---</panel_attributes>
+-platChoisi:PlatChoisi
+--
++PlatEtat(PlatChoisi)
++nextState():void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -645,7 +648,8 @@ PlatSanteCreator
     <panel_attributes>bg=green
 PlatCommande
 --
---</panel_attributes>
+--
++nextState():void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -659,21 +663,23 @@ PlatCommande
     <panel_attributes>bg=green
 PlatEnPreparation
 --
---</panel_attributes>
+--
++nextState():void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1656</x>
-      <y>837</y>
+      <x>1665</x>
+      <y>864</y>
       <w>243</w>
       <h>45</h>
     </coordinates>
     <panel_attributes>bg=green
 PlatTermine
 --
---</panel_attributes>
+--
++nextState():void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -687,41 +693,42 @@ PlatTermine
     <panel_attributes>bg=green
 PlatServi
 --
---</panel_attributes>
+--
++nextState():void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>1350</x>
-      <y>801</y>
+      <y>837</y>
       <w>72</w>
-      <h>81</h>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>60.0;10.0;10.0;70.0</additional_attributes>
+    <additional_attributes>60.0;10.0;10.0;30.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>1503</x>
-      <y>801</y>
+      <y>837</y>
       <w>45</w>
-      <h>81</h>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>30.0;10.0;10.0;70.0</additional_attributes>
+    <additional_attributes>30.0;10.0;10.0;30.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>1602</x>
       <y>783</y>
-      <w>72</w>
-      <h>90</h>
+      <w>81</w>
+      <h>117</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;60.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;70.0;110.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -1252,5 +1259,30 @@ lt=&lt;-</panel_attributes>
     </coordinates>
     <panel_attributes>lt=.&gt;</panel_attributes>
     <additional_attributes>120.0;30.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1674</x>
+      <y>792</y>
+      <w>243</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>bg=green
+PlatTermine
+--
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1602</x>
+      <y>774</y>
+      <w>90</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;30.0</additional_attributes>
   </element>
 </diagram>
