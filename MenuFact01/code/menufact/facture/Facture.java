@@ -29,9 +29,24 @@ public class Facture {
      *
      * @param client le client de la facture
      */
-    public void associerClient (Client client)
-    {
+    public void associerClient (Client client) throws FactureException {
+        this.etat.associerClient(client);
+    }
+
+    /**
+     * Cette fonction doit être utilisé dans les classes enfants de facture etat
+     * @param client le client de la facture
+     */
+    public void setClient(Client client) {
         this.client = client;
+    }
+
+    /**
+     *
+     * @return le client de la facture
+     */
+    public Client getClient(){
+        return this.client;
     }
 
     /**
@@ -73,16 +88,16 @@ public class Facture {
     /**
      * Permet de chager l'état de la facture à PAYEE
      */
-    public void payer()
+    public void payer() throws FactureException
     {
-       etat = FactureEtat.PAYEE;
+        etat.payer();
     }
     /**
      * Permet de chager l'état de la facture à FERMEE
      */
-    public void fermer()
+    public void fermer() throws FactureException
     {
-       etat = FactureEtat.FERMEE;
+       etat.fermer();
     }
 
     /**
@@ -91,10 +106,7 @@ public class Facture {
      */
     public void ouvrir() throws FactureException
     {
-        if (etat == FactureEtat.PAYEE)
-            throw new FactureException("La facture ne peut pas être reouverte.");
-        else
-            etat = FactureEtat.OUVERTE;
+        etat.ouvrir();
     }
 
     /**
@@ -112,9 +124,17 @@ public class Facture {
      */
     public Facture(String description) {
         date = new Date();
-        etat = FactureEtat.OUVERTE;
+        etat = new FactureOuverte(this);
         courant = -1;
         this.description = description;
+    }
+
+    /**
+     * Change l'état de la facture, devrait être utiliser dans les classes enfant de FactureEtat
+     * @param etat la nouvelle état de la facture
+     */
+    public void changeState(FactureEtat etat) {
+        this.etat = etat;
     }
 
     /**
@@ -124,10 +144,15 @@ public class Facture {
      */
     public void ajoutePlat(PlatChoisi p) throws FactureException
     {
-        if (etat == FactureEtat.OUVERTE)
-            platchoisi.add(p);
-        else
-            throw new FactureException("On peut ajouter un plat seulement sur une facture OUVERTE.");
+        etat.ajoutePlat(p);
+    }
+
+    /**
+     *
+     * @param p un plat choisi
+     */
+    public void addPlat(PlatChoisi p) {
+        platchoisi.add(p);
     }
 
     /**

@@ -44,6 +44,8 @@
 +Facture(String)
 +changeState(FactureEtat)
 +associerClient(Client):void
++setClient(Client):void
++getClient():Client
 +sousTotal():double
 +total():double
 +payer():void
@@ -83,8 +85,8 @@ FactureEtat
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2457</x>
-      <y>954</y>
+      <x>2475</x>
+      <y>918</y>
       <w>135</w>
       <h>27</h>
     </coordinates>
@@ -109,25 +111,25 @@ FactureEtat
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2583</x>
-      <y>945</y>
-      <w>207</w>
+      <x>2601</x>
+      <y>927</y>
+      <w>189</w>
       <h>45</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>210.0;10.0;10.0;30.0</additional_attributes>
+    <additional_attributes>190.0;30.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>2412</x>
       <y>801</y>
-      <w>117</w>
-      <h>171</h>
+      <w>126</w>
+      <h>135</h>
     </coordinates>
     <panel_attributes>&lt;&lt;throws&gt;&gt;
 lt=&lt;.</panel_attributes>
-    <additional_attributes>100.0;170.0;10.0;10.0</additional_attributes>
+    <additional_attributes>120.0;130.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -145,7 +147,7 @@ lt=&lt;.</panel_attributes>
 -prix:double
 --
 +PlatAuMenu()
-+ajouteIngredient()
++ajouteIngredient(IngredientPlat)
 +PlatAuMenu(int,String,double)
 +getCode():int
 +setCode(int):void
@@ -736,7 +738,7 @@ PlatServi
     <id>UMLClass</id>
     <coordinates>
       <x>1620</x>
-      <y>378</y>
+      <y>369</y>
       <w>243</w>
       <h>72</h>
     </coordinates>
@@ -763,13 +765,13 @@ lt=&lt;-</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1278</x>
+      <x>1305</x>
       <y>414</y>
       <w>243</w>
       <h>54</h>
     </coordinates>
     <panel_attributes>bg=red
-PlatChoisiSubscriber
+&lt;&lt;interface&gt;&gt;PlatChoisiSubscriber
 --
 --
 +notifier(PlatChoisi):void</panel_attributes>
@@ -778,24 +780,24 @@ PlatChoisiSubscriber
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1512</x>
-      <y>405</y>
-      <w>126</w>
-      <h>54</h>
+      <x>1539</x>
+      <y>396</y>
+      <w>99</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;40.0;120.0;10.0</additional_attributes>
+    <additional_attributes>10.0;50.0;90.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1458</x>
+      <x>1485</x>
       <y>459</y>
-      <w>54</w>
+      <w>27</w>
       <h>63</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;</panel_attributes>
-    <additional_attributes>40.0;50.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -1199,10 +1201,10 @@ EPICE</panel_attributes>
       <x>1728</x>
       <y>252</y>
       <w>45</w>
-      <h>144</h>
+      <h>135</h>
     </coordinates>
     <panel_attributes>lt=.&gt;</panel_attributes>
-    <additional_attributes>30.0;140.0;10.0;10.0</additional_attributes>
+    <additional_attributes>30.0;130.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>

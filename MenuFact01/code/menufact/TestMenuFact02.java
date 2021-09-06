@@ -61,7 +61,11 @@ public class TestMenuFact02 {
         }
 
 
-        t.test8_AjouterClientFacture(f1, c1);
+        try {
+            t.test8_AjouterClientFacture(f1, c1);
+        } catch (FactureException e) {
+            System.out.println(e.getMessage());
+        }
 
         try {
             t.test8_AjouterPlatsFacture(f1, m1,1);
@@ -74,7 +78,11 @@ public class TestMenuFact02 {
             System.out.println(me);
         }
 
-        t.test9_PayerFacture(f1);
+        try {
+            t.test9_PayerFacture(f1);
+        } catch (FactureException e) {
+            System.out.println(e.getMessage());
+        }
 
         try {
             t.test8_AjouterPlatsFacture(f1, m1,1);
@@ -251,7 +259,7 @@ public class TestMenuFact02 {
     }
 
 
-    private void test8_AjouterClientFacture(Facture f1,Client c1) {
+    private void test8_AjouterClientFacture(Facture f1,Client c1) throws FactureException {
         System.out.println("===test8_AjouterClientFacture");
         f1.associerClient(c1);
         System.out.println(f1);
@@ -281,8 +289,7 @@ public class TestMenuFact02 {
         System.out.println(f1);
     }
 
-    private void test9_PayerFacture(Facture f1)
-    {
+    private void test9_PayerFacture(Facture f1) throws FactureException {
         System.out.println("===test9_PayerFacture");
 
         System.out.println("Avant payer la facture");
