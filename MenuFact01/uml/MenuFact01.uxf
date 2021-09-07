@@ -752,9 +752,11 @@ PlatServi
     <panel_attributes>bg=red
 Chef
 --
+-ingredientManager:IngredientManager
 --
 +notifier(PlatChoisi):void
-+changerEtatPlat(PlatChoisi,PlatEtat)</panel_attributes>
++changerEtatPlat(PlatChoisi,PlatEtat):void
++setIngredientManager(IngredientManager):void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -946,6 +948,7 @@ lt=&lt;-</panel_attributes>
 +IngredientInventaire(Ingredient,int)
 +getQuantity():int
 +setQuantity(int):void
++getNom():String
 
 </panel_attributes>
     <additional_attributes/>
@@ -1143,7 +1146,7 @@ EPICE</panel_attributes>
       <w>387</w>
       <h>216</h>
     </coordinates>
-    <panel_attributes>lt=&lt;.</panel_attributes>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;</panel_attributes>
     <additional_attributes>410.0;10.0;10.0;220.0</additional_attributes>
   </element>
   <element>
@@ -1190,11 +1193,12 @@ EPICE</panel_attributes>
       <x>1566</x>
       <y>171</y>
       <w>270</w>
-      <h>90</h>
+      <h>108</h>
     </coordinates>
     <panel_attributes>IngredientManager
 --
 -manager:IngredientManager
+-inventaire:Inventaire
 --
 -IngredientManager()
 +getIngredientManager():IngredientManager
@@ -1206,12 +1210,12 @@ EPICE</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1728</x>
-      <y>252</y>
+      <y>270</y>
       <w>45</w>
-      <h>135</h>
+      <h>117</h>
     </coordinates>
     <panel_attributes>lt=.&gt;</panel_attributes>
-    <additional_attributes>30.0;130.0;10.0;10.0</additional_attributes>
+    <additional_attributes>30.0;110.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -1297,8 +1301,9 @@ PlatImpossibleDeServir
 --
 -lesIngredients:ArrayList&lt;IngredientInventaire&gt;
 --
-+ajouterIngredient(Ingredient):void
-+removeIngredient(Ingredient):void
++getIngredientInventaire(Ingredient):void
++ajouterIngredient(Ingredient,int):void
++removeIngredient(Ingredient,int):void
 </panel_attributes>
     <additional_attributes/>
   </element>
