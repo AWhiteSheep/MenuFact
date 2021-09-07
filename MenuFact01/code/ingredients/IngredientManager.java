@@ -5,6 +5,7 @@ import inventaire.Inventaire.*;
 //VIEW
 public class IngredientManager {
     private IngredientManager manager;
+    private Inventaire inventaire;
 
     private IngredientManager(){
 
@@ -26,7 +27,8 @@ public class IngredientManager {
      * @param ingredient l'ingredient a verifier
      * @param Quantity la quantite a verifier?
      */
-    public boolean verifyInventory(Ingredient ingredient, int Quantity) {
-        return true;
+    public boolean verifyInventory(Ingredient ingredient, double Quantity) {
+        return inventaire.getIngredientInventaire(ingredient).getQuantite()>= Quantity;
+
     }
 }

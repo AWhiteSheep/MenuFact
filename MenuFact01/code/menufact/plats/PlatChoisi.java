@@ -1,5 +1,6 @@
 package menufact.plats;
 
+import ingredients.Ingredient;
 import menufact.plats.PlatAuMenu;
 
 import java.util.ArrayList;
@@ -8,11 +9,8 @@ import java.util.concurrent.Flow;
 
 public class PlatChoisi {
     private PlatAuMenu plat;
-    private int quantite;
+    private double quantite;
     private PlatEtat etat;
-
-    //AJOUT NAO*******************************************************************************************************************
-    //ARRAY DE SUBSCRIBERS
     private ArrayList<PlatChoisiSubscriber> subscribers = new ArrayList<PlatChoisiSubscriber>();
 
     /**
@@ -39,10 +37,8 @@ public class PlatChoisi {
             platchoisisub.notifier(this);
        }
     }
-    //FIN AJOUT NAO*************************************************************************************************************
 
-
-    public PlatChoisi(PlatAuMenu plat, int quantite) {
+    public PlatChoisi(PlatAuMenu plat, double quantite) {
         this.plat = plat;
         this.quantite = quantite;
     }
@@ -61,7 +57,7 @@ public class PlatChoisi {
                 '}';
     }
 
-    public int getQuantite() {
+    public double getQuantite() {
         return quantite;
     }
 

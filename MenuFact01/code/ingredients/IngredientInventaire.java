@@ -23,4 +23,6 @@ public class IngredientInventaire {
         else
             this.quantite = quantite;
     }
+
+    public String getNom(){return ingredient.getNom();}
 }
