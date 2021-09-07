@@ -1,5 +1,7 @@
 package ingredients;
 
+import inventaire.Inventaire;
+import inventaire.Inventaire.*;
 //VIEW
 public class IngredientManager {
     private IngredientManager manager;
@@ -8,6 +10,10 @@ public class IngredientManager {
 
     }
 
+    /**
+     *
+     * @return l'instance du manager
+     */
     public IngredientManager getIngredientManager(){
         if(manager == null)
             manager = new IngredientManager();
@@ -15,9 +21,12 @@ public class IngredientManager {
         return manager;
     }
 
-    public void verifyInventory(Ingredient ingredient, int Quantity) {
-        //hemm???
-        System.out.println("Ingredient: " + ingredient);
-        System.out.println("Quantite: " + Quantity);
+    /**
+     *
+     * @param ingredient l'ingredient a verifier
+     * @param Quantity la quantite a verifier?
+     */
+    public boolean verifyInventory(Ingredient ingredient, int Quantity) {
+        return true;
     }
 }
