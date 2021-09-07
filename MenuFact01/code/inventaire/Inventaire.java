@@ -13,4 +13,11 @@ public class Inventaire {
         lesIngredients.add(new IngredientInventaire(ingredient, quantite));
     }
 
+    public IngredientInventaire getIngredientInventaire(Ingredient ingredient) {
+        for(IngredientInventaire IngInv: lesIngredients) {
+            if (IngInv.getNom() == ingredient.getNom())
+                return IngInv;
+        }
+        return null;
+    }
 }
