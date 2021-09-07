@@ -4,34 +4,26 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-//Yan
-class ClientTest {
+//YAN
+class IngredientPlatTest {
 
     @BeforeEach
     void setUp() {
     }
 
     @Test
-    void getIdClient() {
+    void getIngredient() {
     }
 
     @Test
-    void setIdClient() {
+    void setIngredient() {
     }
 
     @Test
-    void getNom() {
+    void getQuantity() {
     }
 
     @Test
-    void setNom() {
-    }
-
-    @Test
-    void getNumeroCarteCredit() {
-    }
-
-    @Test
-    void setNumeroCarteCredit() {
+    void setQuantity() {
     }
 }

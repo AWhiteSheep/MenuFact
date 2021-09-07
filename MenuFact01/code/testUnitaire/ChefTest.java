@@ -4,14 +4,18 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-// Yan
-class InventaireTest {
+//Yan
+class ChefTest {
 
     @BeforeEach
     void setUp() {
     }
 
     @Test
-    void ajouter() {
+    void notifier() {
+    }
+
+    @Test
+    void changerEtatPlat() {
     }
 }
