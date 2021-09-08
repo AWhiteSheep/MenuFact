@@ -8,6 +8,10 @@ package menufact.plats;
  */
 public class PlatCommande extends PlatEtat{
 
+    /**
+     *
+     * @param p Le plat choisi pour l'état plat commandé.
+     */
     public PlatCommande(PlatChoisi p) {
         super(p);
     }

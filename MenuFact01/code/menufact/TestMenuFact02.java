@@ -316,4 +316,8 @@ public class TestMenuFact02 {
         System.out.println("Apres avoir paye la facture");
         System.out.println(f1);
     }
+
+    private void test10_AjouterIngredients() {
+
+    }
 }
