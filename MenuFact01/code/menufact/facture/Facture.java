@@ -82,7 +82,7 @@ public class Facture {
      * @return la valeur de la TVQ
      */
     private  double tvq(){
-        return TVQ*(TPS+1)*sousTotal();
+        return TVQ*sousTotal();
     }
 
     /**

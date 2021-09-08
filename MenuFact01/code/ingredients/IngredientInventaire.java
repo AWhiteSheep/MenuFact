@@ -10,14 +10,14 @@ import ingredients.exceptions.IngredientException;
  */
 public class IngredientInventaire {
     private Ingredient ingredient;
-    private int quantite;
+    private double quantite;
 
     /**
      * constructeur
      * @param ingredient lingredient de linventaire
      * @param quantite la quantite de lingredient
      */
-    public IngredientInventaire(Ingredient ingredient, int quantite) {
+    public IngredientInventaire(Ingredient ingredient, double quantite) {
         this.ingredient = ingredient;
         this.quantite = quantite;
     }
@@ -26,7 +26,7 @@ public class IngredientInventaire {
      *
      * @return la quantite de lingredient
      */
-    public int getQuantite() {
+    public double getQuantite() {
         return quantite;
     }
 
@@ -35,7 +35,7 @@ public class IngredientInventaire {
      * @param quantite la quantite a changer de lingredient
      * @throws IngredientException si la quantite est negative
      */
-    public void setQuantite(int quantite) throws IngredientException{
+    public void setQuantite(double quantite) throws IngredientException{
         if (quantite < 0)
             throw new IngredientException("Il n'est pas possible d'avoir une quantité negative");
         else

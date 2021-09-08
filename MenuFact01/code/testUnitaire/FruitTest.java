@@ -27,6 +27,7 @@ class FruitTest {
     /**
      * test pour obtenir lunite
      */
+    @Test
     void getUnit() {
         assertEquals("mg", fruit.getUnit().getNom(), "verification de lunite des fruits");
     }
@@ -34,6 +35,7 @@ class FruitTest {
     /**
      * test pour avoir le type dingredient
      */
+    @Test
     void getTypeIngredient() {
         assertEquals(TypeIngredient.FRUIT, fruit.getTypeIngredient(), "verification du type dingredient");
     }

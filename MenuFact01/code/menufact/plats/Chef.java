@@ -4,7 +4,14 @@ package menufact.plats;
 import ingredients.IngredientInventaire;
 import ingredients.IngredientManager;
 import ingredients.IngredientPlat;
+import ingredients.exceptions.IngredientException;
 
+/**
+ * Classe pour le chef du systeme Menufact
+ * @author Naomie L'archevêque Carrière
+ * @author Yan Ha Routhier-Chevrier
+ * @version 2.0
+ */
 public class Chef implements PlatChoisiSubscriber{
 
     private IngredientManager ingredientManager;
@@ -13,7 +20,7 @@ public class Chef implements PlatChoisiSubscriber{
      * @param platchoisi le plat choisi
      */
     @Override
-    public void notifier(PlatChoisi platchoisi){
+    public void notifier(PlatChoisi platchoisi) throws IngredientException {
         changerEtatPlat(platchoisi);
     }
 
@@ -21,7 +28,7 @@ public class Chef implements PlatChoisiSubscriber{
      * Change l'etat du plat
      * @param platchoisi le plat choisi
      */
-    public void changerEtatPlat(PlatChoisi platchoisi ) {
+    public void changerEtatPlat(PlatChoisi platchoisi ) throws IngredientException {
 
         //regarder dans inventaire avant de changer etat
         for(int i = 0; i< platchoisi.getQuantite(); i++){
@@ -34,7 +41,12 @@ public class Chef implements PlatChoisiSubscriber{
                 }
             }
             if(!cannotBeCreated)
+            {
                 platchoisi.changeState(new PlatEnPreparation(platchoisi));
+                for (IngredientPlat ingredientPlat: platchoisi.getPlat().getIngredients()) {
+                    ingredientManager.remove(ingredientPlat.getIngredient(), ingredientPlat.getQuantity());
+                }
+            }
         }
 
 

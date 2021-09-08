@@ -4,6 +4,7 @@ import ingredients.Legume;
 import ingredients.TypeIngredient;
 import ingredients.Viande;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 /**
@@ -26,6 +27,7 @@ class ViandeTest {
     /**
      * test pour obtenir lunite
      */
+    @Test
     void getUnit() {
         assertEquals("mg", viande.getUnit().getNom(), "verification des unites des viandes");
     }
@@ -33,6 +35,7 @@ class ViandeTest {
     /**
      * test pour avoir le type dingredient
      */
+    @Test
     void getTypeIngredient() {
         assertEquals(TypeIngredient.VIANDE, viande.getTypeIngredient(), "verification du type dingredient");
     }

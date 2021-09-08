@@ -7,6 +7,7 @@ package inventaire;
  */
 import ingredients.Ingredient;
 import ingredients.IngredientInventaire;
+import ingredients.exceptions.IngredientException;
 
 import java.util.ArrayList;
 
@@ -32,9 +33,19 @@ public class Inventaire {
      * @param ingredient lingredient a ajouter
      * @param quantite la quantite de lingredient que lon ajoute
      */
-    public void ajouter (Ingredient ingredient, int quantite)
+    public void ajouter (Ingredient ingredient, double quantite)
     {
         lesIngredients.add(new IngredientInventaire(ingredient, quantite));
+    }
+
+    /**
+     *
+     * @param ingredient L'ingredient a remove
+     * @param quantite la quantité d'ingrédient dans le plat
+     */
+    public void remove(Ingredient ingredient, double quantite) throws IngredientException {
+        IngredientInventaire ingredientInventaire = this.getIngredientInventaire(ingredient);
+        ingredientInventaire.setQuantite(ingredientInventaire.getQuantite() - quantite);
     }
 
     /**

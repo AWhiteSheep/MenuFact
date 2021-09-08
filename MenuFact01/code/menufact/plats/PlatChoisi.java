@@ -1,11 +1,17 @@
 package menufact.plats;
 
 import ingredients.Ingredient;
+import ingredients.exceptions.IngredientException;
 import menufact.plats.PlatAuMenu;
 
 import java.util.ArrayList;
 import java.util.concurrent.Flow;
-
+/**
+ * Classe pour le plat choisi du systeme Menufact
+ * @author Naomie L'archevêque Carrière
+ * @author Yan Ha Routhier-Chevrier
+ * @version 2.0
+ */
 
 public class PlatChoisi {
     private PlatAuMenu plat;
@@ -32,7 +38,7 @@ public class PlatChoisi {
     /**
      * Notifier tous les subscribers qu'un plat a été choisi
      */
-    public void notifierSubscriber() {
+    public void notifierSubscriber() throws IngredientException {
        for(PlatChoisiSubscriber platchoisisub: subscribers) {
             platchoisisub.notifier(this);
        }

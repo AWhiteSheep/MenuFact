@@ -45,6 +45,15 @@ public class PlatAuMenu {
         return ingredients;
     }
 
+    /***
+     *
+     * @param ingredient L'ingredient à ajouter au plat
+     * @param quantity La quantité de l'ingredient dans le plat
+     */
+    public void addIngredient(Ingredient ingredient, double quantity) {
+        this.ingredients.add(new IngredientPlat(ingredient, quantity));
+    }
+
     /**
      *
      * @return les informations du plat

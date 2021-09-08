@@ -1,5 +1,7 @@
 package menufact;
 
+import ingredients.*;
+import inventaire.Inventaire;
 import menufact.facture.exceptions.FactureException;
 import menufact.exceptions.MenuException;
 import menufact.facture.Facture;
@@ -12,6 +14,22 @@ public class TestMenuFact02 {
 
     public static void main(String[] args) {
         boolean trace = true;
+
+        Inventaire inventaire = Inventaire.getInventaire();
+        IngredientManager ingredientManager = IngredientManager.getIngredientManager();
+        ingredientManager.setInventaire(inventaire);
+
+        Fruit apple = new Fruit("Apple");
+        Fruit banane = new Fruit("Banane");
+        Fruit fraise = new Fruit("Fraise");
+
+        Laitier lait = new Laitier("Lait 3%");
+
+        inventaire.ajouter(banane, 100);
+        inventaire.ajouter(fraise, 100);
+        inventaire.ajouter(apple, 100);
+        inventaire.ajouter(lait, 100);
+
 
         TestMenuFact02 t = new TestMenuFact02();
 
@@ -34,6 +52,8 @@ public class TestMenuFact02 {
         PlatEnfant pe4 = new PlatEnfant(18, "PlatEnfant3", 40, .65);
         PlatEnfant pe5 = new PlatEnfant(19, "PlatEnfant4", 50, .55);
 
+        p1.addIngredient(fraise, 10);
+        p1.addIngredient(banane, 20);
 
         Menu m1 = new Menu("menufact.Menu 1");
         Menu m2 = new Menu("menufact.Menu 2");

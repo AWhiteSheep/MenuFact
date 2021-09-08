@@ -3,6 +3,7 @@ package testUnitaire;
 import ingredients.Legume;
 import ingredients.TypeIngredient;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 /**
@@ -25,6 +26,7 @@ class LegumeTest {
     /**
      * test pour obtenir lunite
      */
+    @Test
     void getUnit() {
         assertEquals("mg", legume.getUnit().getNom(), "verification des unites des legumes");
     }
@@ -32,6 +34,7 @@ class LegumeTest {
     /**
      * test pour avoir le type dingredient
      */
+    @Test
     void getTypeIngredient() {
         assertEquals(TypeIngredient.LEGUME, legume.getTypeIngredient(), "verification du type dingredient");
     }

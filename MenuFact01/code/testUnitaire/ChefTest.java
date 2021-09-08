@@ -34,7 +34,7 @@ class ChefTest {
      */
     @Test
     void testNotifier() {
-        chef.notifier(platChoisi);
+        Assertions.assertDoesNotThrow(() -> chef.notifier(platChoisi));
         Assertions.assertTrue(platChoisi.getEtat().getClass() == PlatEnPreparation.class, "Plat choisi notifier au chef; devient PlatEnPreparation");
         Assertions.assertFalse(platChoisi.getEtat().getClass() == PlatCommande.class, "Plat choisi notifier au chef; n'est pas PlatCommande");
         Assertions.assertFalse(platChoisi.getEtat().getClass() == PlatServi.class, "Plat choisi notifier au chef; n'est pas PlatServi");
@@ -47,7 +47,7 @@ class ChefTest {
      */
     @Test
     void changerEtatPlat() {
-        chef.changerEtatPlat(platChoisi);
+        Assertions.assertDoesNotThrow(() -> chef.changerEtatPlat(platChoisi));
         Assertions.assertTrue(platChoisi.getEtat().getClass() == PlatEnPreparation.class, "Plat choisi notifier au chef; devient PlatEnPreparation");
         Assertions.assertFalse(platChoisi.getEtat().getClass() == PlatCommande.class, "Plat choisi notifier au chef; n'est pas PlatCommande");
         Assertions.assertFalse(platChoisi.getEtat().getClass() == PlatServi.class, "Plat choisi notifier au chef; n'est pas PlatServi");

@@ -90,7 +90,7 @@ class FactureTest {
     @Test
     void total() {
         facture.addPlat(newPlat);
-        assertEquals(11.4975, facture.total());
+        assertEquals(10.0*(1+0.05+0.095), facture.total());
     }
 
     /**
@@ -112,13 +112,8 @@ class FactureTest {
      */
     @Test
     void fermer() {
-        try{
-            facture.fermer();
-        } catch (FactureException fe)
-        {
-            System.out.println(fe.getMessage());
-        }
 
+        Assertions.assertDoesNotThrow(()->facture.fermer());
         Assertions.assertFalse(facture.getEtat().getClass() == FacturePayee.class, "Facture ne devient pas fermee, est payee");
         Assertions.assertFalse(facture.getEtat().getClass()== FactureOuverte.class, "Facture ne devient pas fermee, est ouverte");
         Assertions.assertTrue(facture.getEtat().getClass() == FactureFermee.class, "Facture devient fermee");
@@ -130,13 +125,8 @@ class FactureTest {
      */
     @Test
     void ouvrir() {
-        try{
-            facture.ouvrir();
-        } catch (FactureException fe)
-        {
-            System.out.println(fe.getMessage());
-        }
 
+        Assertions.assertThrows(FactureException.class , ()->facture.ouvrir());
         Assertions.assertFalse(facture.getEtat().getClass() == FacturePayee.class, "Facture ne devient pas ouverte, est payee");
         Assertions.assertTrue(facture.getEtat().getClass()== FactureOuverte.class, "Facture devient ouverte");
         Assertions.assertFalse(facture.getEtat().getClass() == FactureFermee.class, "Facture ne devient pas ouverte, est fermee");
@@ -149,12 +139,7 @@ class FactureTest {
     @Test
     void getEtat() {
 
-        try{
-            facture.ouvrir();
-        } catch (FactureException fe)
-        {
-            System.out.println(fe.getMessage());
-        }
+        Assertions.assertThrows(FactureException.class , ()->facture.ouvrir());
 
         Assertions.assertFalse(facture.getEtat().getClass() == FacturePayee.class, "Facture ne devient pas ouverte, est payee");
         Assertions.assertTrue(facture.getEtat().getClass()== FactureOuverte.class, "Facture devient ouverte");

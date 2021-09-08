@@ -1,5 +1,6 @@
 package ingredients;
 
+import ingredients.exceptions.IngredientException;
 import inventaire.Inventaire;
 import inventaire.Inventaire.*;
 
@@ -45,6 +46,9 @@ public class IngredientManager {
      */
     public boolean verifyInventory(Ingredient ingredient, double Quantity) {
         return inventaire.getIngredientInventaire(ingredient).getQuantite()>= Quantity;
+    }
 
+    public void remove(Ingredient ingredient, double quantite) throws IngredientException {
+        inventaire.remove(ingredient,quantite);
     }
 }
