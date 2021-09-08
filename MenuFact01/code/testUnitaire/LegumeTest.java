@@ -26,13 +26,13 @@ class LegumeTest {
      * test pour obtenir lunite
      */
     void getUnit() {
-        assertEquals("mg", legume.getUnit());
+        assertEquals("mg", legume.getUnit().getNom(), "verification des unites des legumes");
     }
 
     /**
      * test pour avoir le type dingredient
      */
     void getTypeIngredient() {
-        assertEquals(TypeIngredient.LEGUME, legume.getTypeIngredient());
+        assertEquals(TypeIngredient.LEGUME, legume.getTypeIngredient(), "verification du type dingredient");
     }
 }
