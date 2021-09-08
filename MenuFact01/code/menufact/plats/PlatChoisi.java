@@ -39,6 +39,7 @@ public class PlatChoisi {
     }
 
     public PlatChoisi(PlatAuMenu plat, double quantite) {
+        this.etat = new PlatCommande(this);
         this.plat = plat;
         this.quantite = quantite;
     }
@@ -67,5 +68,11 @@ public class PlatChoisi {
 
     public PlatAuMenu getPlat() {
         return plat;
+    }
+
+    public PlatEtat getEtat() { return etat; }
+
+    public int CountSubscriber() {
+        return subscribers.size();
     }
 }

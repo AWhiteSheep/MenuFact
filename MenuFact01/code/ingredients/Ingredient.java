@@ -5,6 +5,11 @@ public class Ingredient {
     private String description;
     private TypeIngredient typeIngredient;
 
+    public Ingredient(String nom) { this.nom = nom; }
+
+    public Ingredient() {
+    }
+
     public String getNom() {
         return nom;
     }

@@ -4,7 +4,7 @@ import inventaire.Inventaire;
 import inventaire.Inventaire.*;
 //VIEW
 public class IngredientManager {
-    private IngredientManager manager;
+    private static IngredientManager manager;
     private Inventaire inventaire;
 
     private IngredientManager(){
@@ -13,13 +13,21 @@ public class IngredientManager {
 
     /**
      *
-     * @return l'instance du manager
+     * @return l'instance du manager.
      */
-    public IngredientManager getIngredientManager(){
+    public static IngredientManager getIngredientManager(){
         if(manager == null)
             manager = new IngredientManager();
 
         return manager;
+    }
+
+    /**
+     *
+     * @param inventaire L'inventaire pour le manager.
+     */
+    public void setInventaire(Inventaire inventaire) {
+        manager.inventaire = inventaire;
     }
 
     /**

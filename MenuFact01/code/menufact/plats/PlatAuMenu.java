@@ -15,14 +15,17 @@ public class PlatAuMenu {
         this.code = code;
         this.description = description;
         this.prix = prix;
+        this.ingredients = new ArrayList<>();
     }
 
     public PlatAuMenu() {
+        this.ingredients = new ArrayList<>();
     }
 
     public ArrayList<IngredientPlat> getIngredients() {
         return ingredients;
     }
+
     @Override
     public String toString() {
         return "menufact.plats.PlatAuMenu{" +
