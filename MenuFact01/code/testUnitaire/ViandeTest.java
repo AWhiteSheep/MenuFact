@@ -1,0 +1,12 @@
+package testUnitaire;
+
+import org.junit.jupiter.api.BeforeEach;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class ViandeTest {
+
+    @BeforeEach
+    void setUp() {
+    }
+}

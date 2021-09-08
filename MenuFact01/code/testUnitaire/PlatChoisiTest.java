@@ -64,7 +64,7 @@ class PlatChoisiTest {
     void changeState() {
         assertEquals(PlatCommande.class, platChoisi.getEtat().getClass(), "Vérification avant le changement d'état.");
         platChoisi.changeState(new PlatEnPreparation(platChoisi));
-        assertEquals(PlatChoisi.class, platChoisi.getEtat().getClass(), "Vérification suite au changement de l'état.");
+        assertEquals(PlatEnPreparation.class, platChoisi.getEtat().getClass(), "Vérification suite au changement de l'état.");
     }
 
     /**

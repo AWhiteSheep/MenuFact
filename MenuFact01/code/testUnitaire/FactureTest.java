@@ -32,6 +32,7 @@ class FactureTest {
     void setUp() {
         this.facture = new Facture("Test facture");
         this.client1 = new Client(1, "TEST set client", "12345");
+        facture.setClient(client1);
         this.etat = new FactureOuverte(facture);
         this.plataumenu = new PlatAuMenu(1, "test plat au menu", 2.0);
         this.newPlat = new PlatChoisi(plataumenu, 5);
@@ -77,16 +78,10 @@ class FactureTest {
      */
     @Test
     void sousTotal() {
-        try{
-            facture.ajoutePlat(newPlat);
-        } catch (FactureException fe)
-        {
-            System.out.println(fe.getMessage());
-        }
         facture.addPlat(newPlat);
-
         assertEquals(10.0, facture.sousTotal());
-
+        facture.addPlat(newPlat);
+        assertEquals(20.0, facture.sousTotal());
     }
 
     /**
@@ -94,15 +89,8 @@ class FactureTest {
      */
     @Test
     void total() {
-        try{
-            facture.ajoutePlat(newPlat);
-        } catch (FactureException fe)
-        {
-            System.out.println(fe.getMessage());
-        }
         facture.addPlat(newPlat);
-
-        assertEquals(10.0 + (10.0*0.05) +(10.0*0.095), facture.total());
+        assertEquals(11.4975, facture.total());
     }
 
     /**
@@ -110,16 +98,13 @@ class FactureTest {
      */
     @Test
     void payer() {
-        try{
-            facture.payer();
-        } catch (FactureException fe)
-        {
-            System.out.println(fe.getMessage());
-        }
-
-        Assertions.assertTrue(facture.getEtat().getClass() == FacturePayee.class, "Facture devient payee");
-        Assertions.assertFalse(facture.getEtat().getClass()== FactureOuverte.class, "Facture ne devient pas payee, est ouverte");
-        Assertions.assertFalse(facture.getEtat().getClass() == FactureFermee.class, "Facture ne devient pas payee, est fermee");
+        Assertions.assertThrows(FactureException.class, () -> facture.payer(), "Test la facture ne peut pas être payer si elle n'est pas fermee.");
+        facture.changeState(new FactureFermee(facture));
+        Assertions.assertDoesNotThrow(() -> facture.payer(), "Test la facture devient payee.");
+        Assertions.assertTrue(facture.getEtat().getClass() == FacturePayee.class, "Facture est payee");
+        Assertions.assertFalse(facture.getEtat().getClass()== FactureOuverte.class, "Facture ne devient pas ouverte, est payee");
+        Assertions.assertFalse(facture.getEtat().getClass() == FactureFermee.class, "Facture ne devient pas fermee, est payee");
+        Assertions.assertThrows(FactureException.class, () -> facture.payer(), "Test la facture ne peut pas être payer si elle est déjà payee.");
     }
 
     /**
@@ -223,6 +208,7 @@ class FactureTest {
      */
     @Test
     void genererFacture() {
-
+        Assertions.assertDoesNotThrow(() -> facture.genererFacture(), "Vérification de la génération de la facture.");
+        Assertions.assertTrue(facture.genererFacture().getClass() == String.class, "Vérification si la génération de la facture retourne un String.");
     }
 }
