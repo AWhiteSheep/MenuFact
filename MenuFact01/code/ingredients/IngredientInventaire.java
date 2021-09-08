@@ -47,4 +47,12 @@ public class IngredientInventaire {
      * @return le nom de lingredient
      */
     public String getNom(){return ingredient.getNom();}
+
+    /**
+     *
+     * @return L'ingredient de l'inventaire
+     */
+    public Ingredient getIngredient() {
+        return ingredient;
+    }
 }

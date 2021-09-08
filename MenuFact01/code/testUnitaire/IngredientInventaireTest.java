@@ -24,7 +24,6 @@ class IngredientInventaireTest {
     void setUp() {
         this.ingredient1 = new Ingredient("patate");
         this.ingredientinventaire = new IngredientInventaire(ingredient1, 3);
-
     }
 
     /**

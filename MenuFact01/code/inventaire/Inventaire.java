@@ -10,10 +10,11 @@ import ingredients.IngredientInventaire;
 import ingredients.exceptions.IngredientException;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Inventaire {
     private static Inventaire inventaire;
-    private ArrayList<IngredientInventaire> lesIngredients = new ArrayList<IngredientInventaire>();
+    private HashMap<Ingredient, IngredientInventaire> lesIngredients = new HashMap<>();
 
     private Inventaire(){};
 
@@ -35,7 +36,16 @@ public class Inventaire {
      */
     public void ajouter (Ingredient ingredient, double quantite)
     {
-        lesIngredients.add(new IngredientInventaire(ingredient, quantite));
+        if(!lesIngredients.containsKey(ingredient))
+            lesIngredients.put(ingredient, new IngredientInventaire(ingredient, quantite));
+        else {
+            IngredientInventaire ingredientInventaire = lesIngredients.get(ingredient);
+            try {
+                ingredientInventaire.setQuantite(ingredientInventaire.getQuantite() + quantite);
+            } catch (IngredientException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /**
@@ -54,10 +64,13 @@ public class Inventaire {
      * @return lingredient ainsi que sa quantite
      */
     public IngredientInventaire getIngredientInventaire(Ingredient ingredient) {
-        for(IngredientInventaire IngInv: lesIngredients) {
-            if (IngInv.getNom() == ingredient.getNom())
-                return IngInv;
-        }
-        return null;
+        return lesIngredients.get(ingredient);
+    }
+
+    /**
+     * Création d'une nouvelle instance d'inventaire.
+     */
+    public static void resetInventory() {
+        inventaire = new Inventaire();
     }
 }

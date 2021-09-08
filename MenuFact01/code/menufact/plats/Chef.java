@@ -25,11 +25,10 @@ public class Chef implements PlatChoisiSubscriber{
     }
 
     /**
-     * Change l'etat du plat
+     * Change l'etat du plat lorsqu'il recoit une notification de la par de PlatChoisi
      * @param platchoisi le plat choisi
      */
     public void changerEtatPlat(PlatChoisi platchoisi ) throws IngredientException {
-
         //regarder dans inventaire avant de changer etat
         for(int i = 0; i< platchoisi.getQuantite(); i++){
             boolean cannotBeCreated= false;
@@ -48,7 +47,5 @@ public class Chef implements PlatChoisiSubscriber{
                 }
             }
         }
-
-
     }
 }

@@ -20,6 +20,17 @@ public class PlatChoisi {
     private ArrayList<PlatChoisiSubscriber> subscribers = new ArrayList<PlatChoisiSubscriber>();
 
     /**
+     *
+     * @param plat Le plat au menu choisi
+     * @param quantite La quantité de ce plat
+     */
+    public PlatChoisi(PlatAuMenu plat, double quantite) {
+        this.etat = new PlatCommande(this);
+        this.plat = plat;
+        this.quantite = quantite;
+    }
+
+    /**
      * @param newsub le subscriber a ajouter
      */
     public void addSubscriber(PlatChoisiSubscriber newsub){
@@ -44,12 +55,6 @@ public class PlatChoisi {
        }
     }
 
-    public PlatChoisi(PlatAuMenu plat, double quantite) {
-        this.etat = new PlatCommande(this);
-        this.plat = plat;
-        this.quantite = quantite;
-    }
-
     /**
      * Fonction devant être appelé dans les classes enfants de PlatEtat
      * @param etat Le vouvelle état pour le plat choisi
@@ -64,20 +69,40 @@ public class PlatChoisi {
                 '}';
     }
 
+    /**
+     *
+     * @return double, La quantité de ce plat choisi.
+     */
     public double getQuantite() {
         return quantite;
     }
 
+    /**
+     *
+     * @param quantite La nouvelle quantité du plat choisi
+     */
     public void setQuantite(int quantite) {
         this.quantite = quantite;
     }
 
+    /**
+     *
+     * @return Retourne le plat choisi
+     */
     public PlatAuMenu getPlat() {
         return plat;
     }
 
+    /**
+     *
+     * @return Retourne l'état du plat choisi
+     */
     public PlatEtat getEtat() { return etat; }
 
+    /**
+     *
+     * @return Retourne le nombre d'abonné
+     */
     public int CountSubscriber() {
         return subscribers.size();
     }

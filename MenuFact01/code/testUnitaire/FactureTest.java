@@ -17,7 +17,6 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Yan Ha Routhier-Chevrier
  * @version 2.0
  */
-
 class FactureTest {
     Facture facture;
     Client client1;

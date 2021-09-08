@@ -18,6 +18,13 @@ public class PlatAuMenu {
     private ArrayList<IngredientPlat> ingredients;
 
     /**
+     * le constructeur du plat au menu sans parametres
+     */
+    public PlatAuMenu() {
+        this.ingredients = new ArrayList<>();
+    }
+
+    /**
      * constructeur du plat au menu avec parametres
      * @param code le code du plat au menu
      * @param description la description du plat
@@ -27,13 +34,6 @@ public class PlatAuMenu {
         this.code = code;
         this.description = description;
         this.prix = prix;
-        this.ingredients = new ArrayList<>();
-    }
-
-    /**
-     * le constructeur du plat au menu sans parametres
-     */
-    public PlatAuMenu() {
         this.ingredients = new ArrayList<>();
     }
 
@@ -52,19 +52,6 @@ public class PlatAuMenu {
      */
     public void addIngredient(Ingredient ingredient, double quantity) {
         this.ingredients.add(new IngredientPlat(ingredient, quantity));
-    }
-
-    /**
-     *
-     * @return les informations du plat
-     */
-    @Override
-    public String toString() {
-        return "menufact.plats.PlatAuMenu{" +
-                "code=" + code +
-                ", description='" + description + '\'' +
-                ", prix=" + prix +
-                "}\n";
     }
 
     /**
@@ -113,5 +100,18 @@ public class PlatAuMenu {
      */
     public void setPrix(double prix) {
         this.prix = prix;
+    }
+
+    /**
+     *
+     * @return les informations du plat
+     */
+    @Override
+    public String toString() {
+        return "menufact.plats.PlatAuMenu{" +
+                "code=" + code +
+                ", description='" + description + '\'' +
+                ", prix=" + prix +
+                "}\n";
     }
 }

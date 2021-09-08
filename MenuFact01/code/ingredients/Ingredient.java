@@ -1,5 +1,7 @@
 package ingredients;
 
+import java.util.Objects;
+
 /**
  * Classe pour les Ingrédients de linventaire du systeme Menufact
  * @author Naomie L'archevêque Carrière
@@ -7,10 +9,17 @@ package ingredients;
  * @version 2.0
  */
 public class Ingredient {
-    private Unit unit;
     private String nom;
     private String description;
+    private Unit unit;
     private TypeIngredient typeIngredient;
+
+    /**
+     * Constructeur sans paramètre
+     */
+    public Ingredient() {
+        this.unit = new Unit("N/A");
+    }
 
     /**
      *
@@ -19,13 +28,6 @@ public class Ingredient {
     public Ingredient(String nom){
         this.unit = new Unit("N/A");
         this.nom = nom;
-    }
-
-    /**
-     * Constructeur sans paramètre
-     */
-    public Ingredient() {
-        this.unit = new Unit("N/A");
     }
 
     /**
@@ -90,5 +92,27 @@ public class Ingredient {
      */
     public void setTypeIngredient(TypeIngredient typeIngredient) {
         this.typeIngredient = typeIngredient;
+    }
+
+    /**
+     *
+     * @param o L'objet pour la comparaison
+     * @return Retourne vrai ou faux si la comparaison string nom, et typeIngredient sont pareil
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Ingredient that = (Ingredient) o;
+        return nom.equals(that.nom) && typeIngredient == that.typeIngredient;
+    }
+
+    /**
+     *
+     * @return Retourne le HashCode de nom et typeIngredient  combiné
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(nom, typeIngredient);
     }
 }
