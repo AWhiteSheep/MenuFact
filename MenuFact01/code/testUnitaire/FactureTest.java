@@ -48,6 +48,8 @@ class FactureTest {
         {
             System.out.println(fe.getMessage());
         }
+
+        assertEquals(client1, facture.getClient(), "le client associe a letat de la facture est le meme que la facture");
     }
 
     /**
