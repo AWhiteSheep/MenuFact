@@ -204,4 +204,6 @@ public class Facture {
 
         return factureGenere;
     }
+
+    public int countPlatchoisi() {return platchoisi.size();}
 }
