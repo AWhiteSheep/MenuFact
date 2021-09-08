@@ -597,13 +597,13 @@ PlatSanteCreator
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>816</x>
+      <x>840</x>
       <y>584</y>
-      <w>416</w>
-      <h>304</h>
+      <w>392</w>
+      <h>312</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>500.0;10.0;10.0;360.0</additional_attributes>
+    <additional_attributes>470.0;10.0;50.0;230.0;10.0;370.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
