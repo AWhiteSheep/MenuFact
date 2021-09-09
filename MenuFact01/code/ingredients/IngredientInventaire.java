@@ -63,6 +63,7 @@ public class IngredientInventaire {
     public String toString() {
         return this.getClass().getName() + "{" +
                 "nom=" + this.getNom() +
-                ", quantite=" + this.getQuantite() + '}';
+                ", quantite=" + this.getQuantite() +
+                this.ingredient.getUnit().getNom() + '}';
     }
 }

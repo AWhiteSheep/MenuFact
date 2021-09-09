@@ -54,7 +54,6 @@ public class Chef implements PlatChoisiSubscriber{
                 for (IngredientPlat ingredientPlat: platchoisi.getPlat().getIngredients()) {
                     ingredientManager.remove(ingredientPlat.getIngredient(), ingredientPlat.getQuantity());
                 }
-                platchoisi.getEtat().next();
             }
         }
     }

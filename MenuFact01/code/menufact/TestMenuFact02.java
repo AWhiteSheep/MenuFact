@@ -299,6 +299,8 @@ public class TestMenuFact02 {
 
         PlatChoisi platChoisi = new PlatChoisi(m1.platCourant(),5, chef);
         System.out.println(platChoisi);
+        platChoisi.getEtat().next();
+        System.out.println(platChoisi);
         try {
             platChoisi.notifierSubscriber();
         } catch (IngredientException e) {
@@ -308,6 +310,8 @@ public class TestMenuFact02 {
         try
         {
             f1.ajoutePlat(platChoisi);
+            platChoisi.getEtat().next();
+            System.out.println(platChoisi);
             platChoisi.getEtat().next();
         }
         catch (FactureException fe)
@@ -347,6 +351,8 @@ public class TestMenuFact02 {
         try
         {
             f1.ajoutePlat(platChoisi);
+            platChoisi.getEtat().next();
+            System.out.println(platChoisi);
             platChoisi.getEtat().next();
         }
         catch (FactureException fe)

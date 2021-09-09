@@ -57,7 +57,6 @@ class FactureTest {
      */
     @Test
     void setClient() {
-
         facture.setClient(client1);
         assertEquals(client1, facture.getClient(), "verification le client est le meme qui a ete ajoute");
     }
@@ -67,7 +66,6 @@ class FactureTest {
      */
     @Test
     void getClient() {
-
         facture.setClient(client1);
         assertEquals(client1, facture.getClient(), "verification client est le meme qui a ete ajoute");
     }
