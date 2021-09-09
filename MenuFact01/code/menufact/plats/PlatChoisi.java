@@ -31,6 +31,19 @@ public class PlatChoisi {
     }
 
     /**
+     *
+     * @param plat Le plat lié au plat choisi
+     * @param quantite La quantité du plat choisi
+     * @param subscriber Subscriber principale comme le chef
+     */
+    public PlatChoisi(PlatAuMenu plat, double quantite, PlatChoisiSubscriber subscriber) {
+        this.etat = new PlatCommande(this);
+        this.plat = plat;
+        this.quantite = quantite;
+        this.addSubscriber(subscriber);
+    }
+
+    /**
      * @param newsub le subscriber a ajouter
      */
     public void addSubscriber(PlatChoisiSubscriber newsub){
@@ -66,6 +79,7 @@ public class PlatChoisi {
         return "menufact.plats.PlatChoisi{" +
                 "quantite=" + quantite +
                 ", plat=" + plat +
+                ", etat=" + getEtat() +
                 '}';
     }
 

@@ -55,4 +55,14 @@ public class IngredientInventaire {
     public Ingredient getIngredient() {
         return ingredient;
     }
+
+    /**
+     * @return Une string litéral pour l'affichage
+     */
+    @Override
+    public String toString() {
+        return this.getClass().getName() + "{" +
+                "nom=" + this.getNom() +
+                ", quantite=" + this.getQuantite() + '}';
+    }
 }

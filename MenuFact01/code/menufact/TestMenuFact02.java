@@ -1,23 +1,24 @@
 package menufact;
 
 import ingredients.*;
+import ingredients.exceptions.IngredientException;
 import inventaire.Inventaire;
 import menufact.facture.exceptions.FactureException;
 import menufact.exceptions.MenuException;
 import menufact.facture.Facture;
-import menufact.plats.PlatAuMenu;
-import menufact.plats.PlatChoisi;
-import menufact.plats.PlatEnfant;
-import menufact.plats.PlatSante;
+import menufact.plats.*;
 
 public class TestMenuFact02 {
 
     public static void main(String[] args) {
         boolean trace = true;
 
+        // Setup pour chef, inventaire, et ingredient manager
+        Chef chef = new Chef();
         Inventaire inventaire = Inventaire.getInventaire();
         IngredientManager ingredientManager = IngredientManager.getIngredientManager();
         ingredientManager.setInventaire(inventaire);
+        chef.setIngredientManager(ingredientManager);
 
         Fruit apple = new Fruit("Apple");
         Fruit banane = new Fruit("Banane");
@@ -25,11 +26,15 @@ public class TestMenuFact02 {
 
         Laitier lait = new Laitier("Lait 3%");
 
-        inventaire.ajouter(banane, 100);
-        inventaire.ajouter(fraise, 100);
-        inventaire.ajouter(apple, 100);
-        inventaire.ajouter(lait, 100);
+        inventaire.ajouter(banane, 100000);
+        inventaire.ajouter(fraise, 100000);
+        inventaire.ajouter(apple, 100000);
+        inventaire.ajouter(lait, 100000);
 
+        System.out.println(inventaire.getIngredientInventaire(banane));
+        System.out.println(inventaire.getIngredientInventaire(fraise));
+        System.out.println(inventaire.getIngredientInventaire(apple));
+        System.out.println(inventaire.getIngredientInventaire(lait));
 
         TestMenuFact02 t = new TestMenuFact02();
 
@@ -52,8 +57,11 @@ public class TestMenuFact02 {
         PlatEnfant pe4 = new PlatEnfant(18, "PlatEnfant3", 40, .65);
         PlatEnfant pe5 = new PlatEnfant(19, "PlatEnfant4", 50, .55);
 
-        p1.addIngredient(fraise, 10);
-        p1.addIngredient(banane, 20);
+        p1.addIngredient(fraise, 50);
+        p1.addIngredient(banane, 50);
+        p2.addIngredient(banane, 50);
+        p3.addIngredient(banane, 50);
+        p4.addIngredient(banane, 50);
 
         Menu m1 = new Menu("menufact.Menu 1");
         Menu m2 = new Menu("menufact.Menu 2");
@@ -83,7 +91,7 @@ public class TestMenuFact02 {
         }
 
         try {
-            t.test7_CreerFacture(f1, m1);
+            t.test7_CreerFacture(f1, chef, m1);
         } catch (FactureException e) {
             System.out.println(e.getMessage());
         }
@@ -96,7 +104,7 @@ public class TestMenuFact02 {
         }
 
         try {
-            t.test8_AjouterPlatsFacture(f1, m1,1);
+            t.test8_AjouterPlatsFacture(f1, m1, chef,1);
         } catch (FactureException fe)
         {
             System.out.println(fe.getMessage());
@@ -113,7 +121,7 @@ public class TestMenuFact02 {
         }
 
         try {
-            t.test8_AjouterPlatsFacture(f1, m1,1);
+            t.test8_AjouterPlatsFacture(f1, m1,chef,1);
         } catch (FactureException fe)
         {
             System.out.println(fe.getMessage());
@@ -138,6 +146,11 @@ public class TestMenuFact02 {
         System.out.println("FIN DE TOUS LES TESTS...");
 
         System.out.println(f1.genererFacture());
+
+        System.out.println(inventaire.getIngredientInventaire(banane));
+        System.out.println(inventaire.getIngredientInventaire(fraise));
+        System.out.println(inventaire.getIngredientInventaire(apple));
+        System.out.println(inventaire.getIngredientInventaire(lait));
     }
 
     private void test1_AffichePlatsAuMenu(boolean trace, PlatAuMenu p1, PlatAuMenu p2,
@@ -280,14 +293,22 @@ public class TestMenuFact02 {
         }
     }
 
-    private void test7_CreerFacture(Facture f1, Menu m1) throws FactureException
+    private void test7_CreerFacture(Facture f1, Chef chef, Menu m1) throws FactureException
     {
         System.out.println("===test7_CreerFacture");
 
-        PlatChoisi platChoisi = new PlatChoisi(m1.platCourant(),5);
+        PlatChoisi platChoisi = new PlatChoisi(m1.platCourant(),5, chef);
+        System.out.println(platChoisi);
+        try {
+            platChoisi.notifierSubscriber();
+        } catch (IngredientException e) {
+            e.printStackTrace();
+        }
+        System.out.println(platChoisi);
         try
         {
             f1.ajoutePlat(platChoisi);
+            platChoisi.getEtat().next();
         }
         catch (FactureException fe)
         {
@@ -302,7 +323,7 @@ public class TestMenuFact02 {
         f1.associerClient(c1);
         System.out.println(f1);
     }
-    private void test8_AjouterPlatsFacture(Facture f1, Menu m1, int pos) throws MenuException,FactureException
+    private void test8_AjouterPlatsFacture(Facture f1, Menu m1, Chef chef, int pos) throws MenuException,FactureException
     {
         System.out.println("===test8_AjouterPlatsFacture");
 
@@ -315,10 +336,18 @@ public class TestMenuFact02 {
             throw me;
         }
 
-        PlatChoisi platChoisi = new PlatChoisi(m1.platCourant(),5);
+        PlatChoisi platChoisi = new PlatChoisi(m1.platCourant(),5, chef);
+        try {
+            platChoisi.notifierSubscriber();
+        } catch (IngredientException e) {
+            e.printStackTrace();
+        }
+        System.out.println(platChoisi);
+
         try
         {
             f1.ajoutePlat(platChoisi);
+            platChoisi.getEtat().next();
         }
         catch (FactureException fe)
         {

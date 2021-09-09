@@ -3,6 +3,7 @@ package menufact.facture;
 import menufact.Client;
 import menufact.facture.exceptions.FactureException;
 import menufact.plats.PlatChoisi;
+import menufact.plats.PlatImpossibleDeServir;
 
 /**
  * L'état ouverte d'une facture du systeme Menufact
@@ -20,7 +21,10 @@ public class FactureOuverte extends FactureEtat{
      * @param p le plat choisi
      */
     public void ajoutePlat(PlatChoisi p) {
-        facture.addPlat(p);
+        if(p.getEtat().getClass() != PlatImpossibleDeServir.class)
+        {
+            facture.addPlat(p);
+        }
     }
 
     /**

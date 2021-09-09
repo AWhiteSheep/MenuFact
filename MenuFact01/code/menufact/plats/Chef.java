@@ -1,6 +1,7 @@
 
 package menufact.plats;
 
+import ingredients.Ingredient;
 import ingredients.IngredientInventaire;
 import ingredients.IngredientManager;
 import ingredients.IngredientPlat;
@@ -15,6 +16,14 @@ import ingredients.exceptions.IngredientException;
 public class Chef implements PlatChoisiSubscriber{
 
     private IngredientManager ingredientManager;
+
+    /**
+     *
+     * @param ingredientManager Le gestionnaire d'ingrédient pour le chef
+     */
+    public void setIngredientManager(IngredientManager ingredientManager) {
+        this.ingredientManager = ingredientManager;
+    }
 
     /**
      * @param platchoisi le plat choisi
@@ -45,6 +54,7 @@ public class Chef implements PlatChoisiSubscriber{
                 for (IngredientPlat ingredientPlat: platchoisi.getPlat().getIngredients()) {
                     ingredientManager.remove(ingredientPlat.getIngredient(), ingredientPlat.getQuantity());
                 }
+                platchoisi.getEtat().next();
             }
         }
     }
